@@ -29,6 +29,7 @@ export default function Home({ ambassadorer }) {
                         return <VideoCard key={node.id} item={node} />;
                     })}
                 </div>
+                <div>my text here</div>
             </div>
 
             <Footer />
