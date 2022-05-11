@@ -1,0 +1,38 @@
+.Layout {
+    background-color: $page-background;
+}
+
+.__inner {
+    &.bg {
+        background: linear-gradient($page-background 500px, #fff 100px);
+
+        @media (max-width: 768px) {
+            background: #fff;
+        }
+    }
+
+    .card-grid {
+        width: 100%;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 100%;
+
+            &.container {
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        .video-card {
+            background-color: $page-background;
+        }
+
+        .card-info{
+            text-align: center;
+        }
+    }
+}
