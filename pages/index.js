@@ -6,9 +6,9 @@ import Layout from "../components/Layout";
 import { getAmbassadorer } from "../lib/api";
 import VideoCard from "../components/videoCard";
 import { Container } from "react-bootstrap";
+import { useState } from "react";
 
 export default function Home({ ambassadorer }) {
-    console.log(ambassadorer);
     return (
         <>
             <div>
@@ -29,7 +29,7 @@ export default function Home({ ambassadorer }) {
                         return <VideoCard key={node.id} item={node} />;
                     })}
                 </div>
-                <div>my text here again</div>
+             
             </div>
 
             <Footer />
