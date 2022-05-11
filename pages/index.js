@@ -3,12 +3,12 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import NavMenu from "../components/NavMenu";
 import Layout from "../components/Layout";
-import { getAmbassadorer } from "../lib/api";
+import { getAmbassadorer, getFrontPageAcf } from "../lib/api";
 import VideoCard from "../components/videoCard";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
 
-export default function Home({ ambassadorer }) {
+export default function Home({ ambassadorer, acf }) {
     return (
         <>
             <div>
@@ -29,8 +29,18 @@ export default function Home({ ambassadorer }) {
                         return <VideoCard key={node.id} item={node} />;
                     })}
                 </div>
-             
             </div>
+
+            <Container>
+                <h2>{acf.frontpageAcf.title}</h2>
+                <div dangerouslySetInnerHTML={{__html: acf.frontpageAcf.content}} />
+                <p>{acf.frontpageAcf.eventTitle}</p>
+                {acf.frontpageAcf.events.map((i) => {
+                    return (
+                        <p key={i.event} className="eventItem">{i.event}</p>
+                    )
+                })}
+            </Container>
 
             <Footer />
         </>
@@ -39,10 +49,12 @@ export default function Home({ ambassadorer }) {
 
 export async function getStaticProps() {
     const ambassadorer = await getAmbassadorer();
+    const acf = await getFrontPageAcf();
 
     return {
         props: {
-            ambassadorer
+            ambassadorer,
+            acf
         }
     };
 }
