@@ -4,9 +4,7 @@ import Footer from "../components/Footer";
 import NavMenu from "../components/NavMenu";
 import Layout from "../components/Layout";
 import { getAmbassadorer } from "../lib/api";
-import { styled } from "goober";
 import VideoCard from "../components/videoCard";
-import VideoCardInfo from "../components/videoCardInfo";
 import { Container } from "react-bootstrap";
 
 export default function Home({ ambassadorer }) {
