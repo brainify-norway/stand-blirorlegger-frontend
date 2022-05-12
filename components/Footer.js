@@ -2,14 +2,14 @@ import { Container, Row } from "react-bootstrap";
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaSnapchat } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = ({ data }) => {
     return (
         <>
             <div className="main-footer">
                 <Container>
                     <Row>
                         {/*Column 1*/}
-                        <div className="col-md-3 col-sm-6">
+                        <div className="col">
                             <div className="icons">
                                 <Image
                                     src="/logo-blir-rorlegger.svg"
@@ -24,40 +24,115 @@ const Footer = () => {
                                     width={70}
                                     height={70}
                                 />
-
-                                <FaSnapchat />
-                                <FaInstagram />
-                                <FaFacebook />
+                                <div class="some">
+                                    <div class="text">
+                                        <p>Følg oss</p>
+                                    </div>
+                                    <div class="social-icons">
+                                        <a
+                                            class="icon"
+                                            href={
+                                                data.socialMediaLinks[0]
+                                                    .socialMediaLink
+                                            }
+                                        >
+                                            <FaSnapchat />
+                                        </a>
+                                        <a
+                                            class="icon"
+                                            href={
+                                                data.socialMediaLinks[1]
+                                                    .socialMediaLink
+                                            }
+                                        >
+                                            <FaInstagram />
+                                        </a>
+                                        <a
+                                            class="icon"
+                                            href={
+                                                data.socialMediaLinks[2]
+                                                    .socialMediaLink
+                                            }
+                                        >
+                                            <FaFacebook />
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
 
-                            <p className="footer-text">
-                                Blirørlegger.no eies og driftes av
-                                rørleggerbedriftens bransjeorganisasjon
-                                Rørentreprenørene Norge. Bransjens 13
-                                tilknyttede opplæringskontor er også viktige
-                                bidragsytere.
-                            </p>
+                            <div className="footer-text">
+                                <p>{data.description}</p>
+                            </div>
                         </div>
 
                         {/*Column 2*/}
-                        <div className="col-md-3 col-sm-6">
+                        <div className="col">
                             <ul className="list-unstyled footer-navigation">
-                                <li>Forsiden</li>
-                                <li>Utdanning</li>
-                                <li>Arbeidsliv</li>
-                                <li>Voksenlærling</li>
-                                <li>Digital stand</li>
-                                <li>Rørambassadører</li>
-                                <li>FAQ</li>
-                                <li>Kontakt</li>
+                                <li>
+                                    
+                                    <a href={data.menuLinks[0].menuLink}>
+                                        {data.menuLinks[0].menuName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.menuLinks[1].menuLink}>
+                                        {data.menuLinks[1].menuName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.menuLinks[2].menuLink}>
+                                        {data.menuLinks[2].menuName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.menuLinks[3].menuLink}>
+                                        {data.menuLinks[3].menuName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.menuLinks[4].menuLink}>
+                                        {data.menuLinks[4].menuName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.menuLinks[5].menuLink}>
+                                        {data.menuLinks[5].menuName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.menuLinks[6].menuLink}>
+                                        {data.menuLinks[6].menuName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.menuLinks[7].menuLink}>
+                                        {data.menuLinks[7].menuName}
+                                    </a>
+                                </li>
                             </ul>
 
                             <ul className="list-unstyled footer-secondary-links">
-                                <li>Nyttige Lenker</li>
-                                <li>www.utdanning.no</li>
-                                <li>www.vilbli.no</li>
-                                <li>www.vigo.no</li>
-                                <li>www.rornorge.no</li>
+                                <p>Nyttige Lenker</p>
+                                <li>
+                                    <a href={data.partnersLinks[0].partnerLink}>
+                                        {data.partnersLinks[0].partnerName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.partnersLinks[1].partnerLink}>
+                                        {data.partnersLinks[1].partnerName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.partnersLinks[2].partnerLink}>
+                                        {data.partnersLinks[2].partnerName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href={data.partnersLinks[3].partnerLink}>
+                                        {data.partnersLinks[3].partnerName}
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </Row>
@@ -68,3 +143,13 @@ const Footer = () => {
 };
 
 export default Footer;
+
+export async function getStaticProps() {
+    const footerAcf = await getFooterAcf();
+
+    return {
+        props: {
+            footerAcfApi
+        }
+    };
+}

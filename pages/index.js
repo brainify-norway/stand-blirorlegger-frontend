@@ -3,12 +3,12 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import NavMenu from "../components/NavMenu";
 import Layout from "../components/Layout";
-import { getAmbassadorer, getFrontPageAcf } from "../lib/api";
+import { getAmbassadorer, getFrontPageAcf, getFooterAcf } from "../lib/api";
 import VideoCard from "../components/videoCard";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
 
-export default function Home({ ambassadorer, acf }) {
+export default function Home({ ambassadorer, frontPage, footerAcf }) {
     return (
         <>
             <div>
@@ -32,29 +32,42 @@ export default function Home({ ambassadorer, acf }) {
             </div>
 
             <Container>
-                <h2>{acf.frontpageAcf.title}</h2>
-                <div dangerouslySetInnerHTML={{__html: acf.frontpageAcf.content}} />
-                <p>{acf.frontpageAcf.eventTitle}</p>
-                {acf.frontpageAcf.events.map((i) => {
+                <h2>{frontPage.frontpageAcf.title}</h2>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: frontPage.frontpageAcf.content
+                    }}
+                />
+                <p>{frontPage.frontpageAcf.eventTitle}</p>
+                {frontPage.frontpageAcf.events.map((i) => {
                     return (
-                        <p key={i.event} className="eventItem">{i.event}</p>
-                    )
+                        <p key={i.event} className="eventItem">
+                            {i.event}
+                        </p>
+                    );
                 })}
             </Container>
+            <div className="footer">
+                {/* <Container>
+                    <p>{footerAcf.footerAcf.description}</p>
+                </Container> */}
+            </div>
 
-            <Footer />
+            <Footer data={footerAcf.footerAcf} />
         </>
     );
 }
 
 export async function getStaticProps() {
     const ambassadorer = await getAmbassadorer();
-    const acf = await getFrontPageAcf();
+    const frontPage = await getFrontPageAcf();
+    const footerAcf = await getFooterAcf();
 
     return {
         props: {
             ambassadorer,
-            acf
+            frontPage,
+            footerAcf
         }
     };
 }
