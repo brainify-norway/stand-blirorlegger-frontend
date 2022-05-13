@@ -1,14 +1,15 @@
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const NavMenu = () => {
+    const [open, setOpen] = useState(false);
     return (
         <>
             <Navbar bg="light" expand="lg">
                 <Container>
                     <Navbar.Brand href="#home">
-                        {" "}
                         <Image
                             src="/logo-blir-rorlegger.svg"
                             alt="Picture of the author"

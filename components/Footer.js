@@ -24,13 +24,13 @@ const Footer = ({ data }) => {
                                     width={70}
                                     height={70}
                                 />
-                                <div class="some">
-                                    <div class="text">
+                                <div className="some">
+                                    <div className="text">
                                         <p>Følg oss</p>
                                     </div>
-                                    <div class="social-icons">
+                                    <div className="social-icons">
                                         <a
-                                            class="icon"
+                                            className="icon"
                                             href={
                                                 data.socialMediaLinks[0]
                                                     .socialMediaLink
@@ -39,7 +39,7 @@ const Footer = ({ data }) => {
                                             <FaSnapchat />
                                         </a>
                                         <a
-                                            class="icon"
+                                            className="icon"
                                             href={
                                                 data.socialMediaLinks[1]
                                                     .socialMediaLink
@@ -48,7 +48,7 @@ const Footer = ({ data }) => {
                                             <FaInstagram />
                                         </a>
                                         <a
-                                            class="icon"
+                                            className="icon"
                                             href={
                                                 data.socialMediaLinks[2]
                                                     .socialMediaLink
