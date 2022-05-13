@@ -1,7 +1,107 @@
+.navbar {
+    position: relative;
+    background-color: $page-background !important;
+    .nav-bg {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        svg {
+            height: 180px;
+            padding-bottom: 40px;
+        }
+    }
+    .container {
+        z-index: 2;
+    }
+}
 .bg-light {
-    background-color: $primary !important;
+    min-height: 100%;
+    .navbar-brand {
+        img {
+            width: 5em !important;
+            height: 5em !important;
+        }
+    }
+    .dropdown {
+        position: relative;
+        .hamburger {
+            color: $secondary;
+            width: 2em;
+            height: 2em;
+            padding-bottom: 20px;
+        }
+        .close {
+            position: absolute;
+            left: auto;
+            right: 15px;
+            top: 15px;
+            width: 30px;
+            height: 30px;
+            
+            padding-right: 5px;
+            margin-right: 10px;
+            path {
+                stroke: $secondary;
+            }
+        }
+        .collapse {
+            background-color: $primary;
+            height: 100vh;
+            position: fixed;
+            z-index: 4;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+
+            .navbar-nav {
+                position: fixed;
+                display: block;
+                margin-right: 50px;
+
+                a {
+                    text-align: right;
+                    color: $secondary;
+                }
+            }
+        }
+    }
+}
+.nav-bg {
+    background-color: $page-background;
 }
 
-.navbar {
-    border-radius: 0 0 50% 30%;
+@media (min-width: 768px) {
+    .nav-bg {
+        top: 0;
+    }
+
+    .navbar-nav {
+        position: fixed;
+        display: block;
+        right: auto;
+        left: auto;
+
+        a {
+            text-align: center;
+            color: $secondary;
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    .navbar {
+        .nav-bg {
+            svg {
+                position: relative;
+                top: auto;
+                height: auto;
+                width: 3000px;
+            }
+        }
+
+        
+    }
 }

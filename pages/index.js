@@ -32,7 +32,29 @@ export default function Home({ ambassadorer }) {
                 <div>my text here again</div>
             </div>
 
+<<<<<<< Updated upstream
             <Footer />
+=======
+            <Container>
+                <h2>{frontPage.frontpageAcf.title}</h2>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: frontPage.frontpageAcf.content
+                    }}
+                />
+                <p>{frontPage.frontpageAcf.eventTitle}</p>
+                {frontPage.frontpageAcf.events.map((i) => {
+                    return (
+                        <p key={i.event} className="eventItem">
+                            {i.event}
+                        </p>
+                    );
+                })}
+            </Container>
+
+
+            <Footer data={footerAcf.footerAcf} />
+>>>>>>> Stashed changes
         </>
     );
 }

@@ -9,21 +9,64 @@ const Footer = () => {
                 <Container>
                     <Row>
                         {/*Column 1*/}
+<<<<<<< Updated upstream
                         <div className="col-md-3 col-sm-6">
+=======
+                        <div className="col  about">
+>>>>>>> Stashed changes
                             <div className="icons">
-                                <Image
+                                
+                                <Image className="company-logo"
                                     src="/logo-blir-rorlegger.svg"
                                     alt="Picture of the author"
                                     width={70}
                                     height={70}
                                 />
 
-                                <Image
+                                <Image className="company-logo"
                                     src="/rorentreprenor.svg"
                                     alt="Picture of the author"
                                     width={70}
                                     height={70}
                                 />
+<<<<<<< Updated upstream
+=======
+                                <div className="some">
+                                    <div className="text">
+                                        <p>Følg oss</p>
+                                    </div>
+                                    <div className="social-icons">
+                                        <a
+                                            className="icon"
+                                            href={
+                                                data.socialMediaLinks[0]
+                                                    .socialMediaLink
+                                            }
+                                        >
+                                            <FaSnapchat />
+                                        </a>
+                                        <a
+                                            className="icon"
+                                            href={
+                                                data.socialMediaLinks[1]
+                                                    .socialMediaLink
+                                            }
+                                        >
+                                            <FaInstagram />
+                                        </a>
+                                        <a
+                                            className="icon"
+                                            href={
+                                                data.socialMediaLinks[2]
+                                                    .socialMediaLink
+                                            }
+                                        >
+                                            <FaFacebook />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+>>>>>>> Stashed changes
 
                                 <FaSnapchat />
                                 <FaInstagram />

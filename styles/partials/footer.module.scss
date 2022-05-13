@@ -1,3 +1,145 @@
 .main-footer {
     background-color: $primary !important;
+<<<<<<< Updated upstream
+=======
+    p,
+    a,
+    h4 {
+        color: $light;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        .col {
+            &.about {
+                margin-bottom: 50px;
+            }
+
+            .icons {
+                display: grid;
+                grid-template-columns: 1fr 1fr 3fr;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                min-width: 100%;
+                margin-bottom: 20px;
+                height: 100px;
+                span {
+                    align-self: end;
+                }
+                .some {
+                    .social-icons {
+                        display: flex;
+                        gap: 10px;
+                    }
+                    .icon {
+                        color: $link;
+                        svg {
+                            width: 2em;
+                            height: 2em;
+                        }
+                        &:hover {
+                            color: rgba($link, 0.5);
+                        }
+                    }
+                }
+            }
+            .list-unstyled {
+                &.footer-navigation {
+                    display: block;
+
+                    a:hover {
+                        color: rgba($light, 0.5);
+                    }
+                }
+                &.footer-secondary-links {
+                    text-align: end;
+                    a {
+                        color: $link;
+                        &:hover {
+                            color: rgba($link, 0.5);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .main-footer {
+        background-color: $primary !important;
+        padding-top: 20px;
+
+        p,
+        a,
+        h4 {
+            color: $light;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            gap: 40px;
+            .icons {
+                display: grid;
+                grid-template-columns: 1fr 1fr 3fr;
+                align-items: center;
+                gap: 10px;
+                min-width: 100%;
+                margin-bottom: 20px;
+                .some {
+                    .social-icons {
+                        display: flex;
+                        gap: 10px;
+                    }
+                    .icon {
+                        color: $link;
+                        svg {
+                            width: 2em;
+                            height: 2em;
+                        }
+                        &:hover {
+                            color: rgba($link, 0.5);
+                        }
+                    }
+                }
+            }
+            .list-unstyled {
+                &.footer-navigation {
+                    display: flex !important;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    justify-content: flex-end;
+                    margin-bottom: 50px;
+                    a:hover {
+                        color: rgba($light, 0.5);
+                    }
+                }
+                &.footer-secondary-links {
+                    text-align: end;
+                    a {
+                        color: $link;
+                        &:hover {
+                            color: rgba($link, 0.5);
+                        }
+                    }
+                }
+            }
+        }
+    }
+>>>>>>> Stashed changes
 }
