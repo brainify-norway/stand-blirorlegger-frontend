@@ -56,6 +56,9 @@ const NavMenu = () => {
                                 <Link href="/">Kontakt oss</Link>
                                 <Link href="/">
                                     Våre ambassadører
+                                </Link>  
+                                <Link href="/">
+                                    Våre ambassadører
                                 </Link>
                             </Nav>
                         </Collapse>
