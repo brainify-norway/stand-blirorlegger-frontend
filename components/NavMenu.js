@@ -50,7 +50,7 @@ const NavMenu = () => {
                             <GrFormClose className="close-icon" />
                         </div>
                         <Collapse in={open}>
-                            <Nav id="nav-menu">
+                           <Nav id="nav-menu">
                                 <Nav.Link href="#home">Forsiden</Nav.Link>
                                 <Nav.Link href="#link">Arbeidsliv</Nav.Link>
                                 <Nav.Link href="#link">Kontakt oss</Nav.Link>

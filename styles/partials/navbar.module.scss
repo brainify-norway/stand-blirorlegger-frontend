@@ -4,9 +4,19 @@
         background-color: $page-background!important;
         min-height: 231px;
         background-size: cover;
+    
+        //hide bootstrap animation for menu links
+        &.navbar-light {
+            .navbar-nav{
+                .nav-link{
+                    display: none;
+                }
+            }
+        }
 
         .container {
             .hamburger-dropdown {
+                z-index: 2;
                 .open-btn {
                     .open-icon {
                         stroke: $secondary;
@@ -14,22 +24,30 @@
                         width: 40px;
                         text-align: right;
                         margin-left: auto;
+                        position: relative;
                     }
                     .close-icon {
                         display: none;
-                        
                     }
                 }
                 .close-btn {
+                    z-index: 3 !important;
                     .open-icon {
-                        display: none;
+                        path{
+                            display: none;
+                        }
                     }
                     .close-icon {
                         display: block;
                         height: 40px;
                         width: 40px;
+                        z-index: 3;
+                        position: fixed;
+                        top: 90px;
+                        right: 150px;
                         path{
                             stroke: $secondary;
+
                         }
                     }
                 }
@@ -37,6 +55,21 @@
 
             .collapse{
                 flex-direction: column;
+                background-color: $primary;
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                left: 0;
+                top: 0;
+                z-index: 2;
+                justify-content: center;
+                .nav-link{
+                    display: block;
+                    color: $secondary;
+                    text-align: center;
+                    transition-delay: 50s;
+
+                }
             }
         }
     }
