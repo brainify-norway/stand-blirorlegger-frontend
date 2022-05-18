@@ -51,10 +51,10 @@ const NavMenu = () => {
                         </div>
                         <Collapse in={open}>
                            <Nav id="nav-menu">
-                                <Nav.Link href="#home">Forsiden</Nav.Link>
-                                <Nav.Link href="#link">Arbeidsliv</Nav.Link>
-                                <Nav.Link href="#link">Kontakt oss</Nav.Link>
-                                <Nav.Link href="#link">
+                                <Nav.Link href="/">Forsiden</Nav.Link>
+                                <Nav.Link href="/">Arbeidsliv</Nav.Link>
+                                <Nav.Link href="/">Kontakt oss</Nav.Link>
+                                <Nav.Link href="/">
                                     Våre ambassadører
                                 </Nav.Link>
                             </Nav>
