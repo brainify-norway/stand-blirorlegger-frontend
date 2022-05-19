@@ -5,12 +5,8 @@ export default function VideoCard({ item }) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        if (open) {
-            document.querySelector("body").classList.add("modal-open");
-            window.scrollTo({ top: 0 });
-        } else {
-            document.querySelector("body").classList.remove("modal-open");
-        }
+      
+        
     });
 
     return (

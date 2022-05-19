@@ -1,33 +1,45 @@
-import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {
+    Button,
+    Container,
+    Nav,
+    Navbar,
+    NavDropdown,
+    Collapse
+} from "react-bootstrap";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { GrFormClose } from "react-icons/gr";
 
 const NavMenu = () => {
     const [open, setOpen] = useState(false);
+
+    const handleBurger = () => {
+        setOpen(!open);
+    };
+
+    // useEffect(() => {
+    //     if (open) {
+    //         document.querySelector("bt-burger").add("menu-open");
+    //     } else {
+    //         document.querySelector("btn-burger").remove("menu-open");
+    //     }
+    // });
+
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            <Navbar expand="lg">
                 <Container>
                     <Navbar.Brand href="#home">
                         <Image
                             src="/logo-blir-rorlegger.svg"
                             alt="Picture of the author"
-                            width={70}
-                            height={70}
+                            width={110}
+                            height={110}
                         />
                     </Navbar.Brand>
-<<<<<<< Updated upstream
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#home">Forsiden</Nav.Link>
-                            <Nav.Link href="#link">Arbeidsliv</Nav.Link>
-                            <Nav.Link href="#link">Kontakt oss</Nav.Link>
-                            <Nav.Link href="#link">Våre ambassadører</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-=======
+
                     <div className="hamburger-dropdown">
                         <div
                             className={open ? "close-btn" : "open-btn"}
@@ -45,11 +57,11 @@ const NavMenu = () => {
                                 <Link href="/">Kontakt oss</Link>
                                 <Link href="/">
                                     Våre ambassadører
-                                </Link>
+                                </Link>  
+
                             </Nav>
                         </Collapse>
                     </div>
->>>>>>> Stashed changes
                 </Container>
             </Navbar>
         </>
