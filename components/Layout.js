@@ -1,16 +1,34 @@
 import { Container } from "react-bootstrap";
+import VideoCard from "../components/videoCard";
 
-const Layout = () => {
+const Layout = ({data, ambassadorer}) => {
     return (
-        <div className="Layout">
-            <Container>
-                <div className="wrapper">
-                    <video autoPlay style={{ width: "500px", height: "500px" }}>
-                        <source src="Odin.mp4" />
-                    </video>
+        <>
+            <div className="__inner bg">
+                <div className="card-grid container">
+                    {ambassadorer.map(({ node }) => {
+                        return <VideoCard key={node.id} item={node} />;
+                    })}
                 </div>
+            </div>
+
+            <Container>
+                <h2>{data.title}</h2>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: data.content
+                    }}
+                />
+                <p>{data.eventTitle}</p>
+                {data.events.map((i) => {
+                    return (
+                        <p key={i.event} className="eventItem">
+                            {i.event}
+                        </p>
+                    );
+                })}
             </Container>
-        </div>
+        </>
     );
 };
 

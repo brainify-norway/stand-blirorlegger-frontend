@@ -144,12 +144,4 @@ const Footer = ({ data }) => {
 
 export default Footer;
 
-export async function getStaticProps() {
-    const footerAcf = await getFooterAcf();
 
-    return {
-        props: {
-            footerAcfApi
-        }
-    };
-}

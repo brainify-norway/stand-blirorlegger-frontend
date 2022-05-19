@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import NavMenu from "../components/NavMenu";
 import Layout from "../components/Layout";
 import { getAmbassadorer, getFrontPageAcf, getFooterAcf } from "../lib/api";
-import VideoCard from "../components/videoCard";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
 
@@ -23,36 +22,8 @@ export default function Home({ ambassadorer, frontPage, footerAcf }) {
             </div>
             <NavMenu />
 
-            <div className="__inner bg">
-                <div className="card-grid container">
-                    {ambassadorer.map(({ node }) => {
-                        return <VideoCard key={node.id} item={node} />;
-                    })}
-                </div>
-            </div>
-
-            <Container>
-                <h2>{frontPage.frontpageAcf.title}</h2>
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: frontPage.frontpageAcf.content
-                    }}
-                />
-                <p>{frontPage.frontpageAcf.eventTitle}</p>
-                {frontPage.frontpageAcf.events.map((i) => {
-                    return (
-                        <p key={i.event} className="eventItem">
-                            {i.event}
-                        </p>
-                    );
-                })}
-            </Container>
-            <div className="footer">
-                {/* <Container>
-                    <p>{footerAcf.footerAcf.description}</p>
-                </Container> */}
-            </div>
-
+            <Layout data={frontPage.frontpageAcf} ambassadorer={ambassadorer}/>
+            
             <Footer data={footerAcf.footerAcf} />
         </>
     );

@@ -17,6 +17,7 @@ const NavMenu = () => {
                             height={70}
                         />
                     </Navbar.Brand>
+<<<<<<< Updated upstream
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
@@ -26,6 +27,29 @@ const NavMenu = () => {
                             <Nav.Link href="#link">Våre ambassadører</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
+=======
+                    <div className="hamburger-dropdown">
+                        <div
+                            className={open ? "close-btn" : "open-btn"}
+                            onClick={() => setOpen(!open)}
+                            aria-controls="nav-menu"
+                            aria-expanded={open}
+                        >
+                            <HiOutlineMenuAlt3 className="open-icon" />
+                            <GrFormClose className="close-icon" />
+                        </div>
+                        <Collapse in={open}>
+                           <Nav id="nav-menu">
+                                <Link href="/">Forsiden</Link>
+                                <Link href="/">Arbeidsliv</Link>
+                                <Link href="/">Kontakt oss</Link>
+                                <Link href="/">
+                                    Våre ambassadører
+                                </Link>
+                            </Nav>
+                        </Collapse>
+                    </div>
+>>>>>>> Stashed changes
                 </Container>
             </Navbar>
         </>
