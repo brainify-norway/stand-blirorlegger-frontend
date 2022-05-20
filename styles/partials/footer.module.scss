@@ -52,16 +52,20 @@
         .list-unstyled {
             &.footer-navigation {
                 display: flex;
-                gap: 10px;
+                gap: 5px;
                 flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                justify-content: flex-start;
                 margin-bottom: 50px;
                 a:hover {
                     color: rgba($light, 0.5);
                 }
             }
             &.footer-secondary-links {
-                text-align: center;
+                text-align: left;
+                p{
+                    margin-bottom: 0;
+                }
                 a {
                     color: $link;
                     &:hover {

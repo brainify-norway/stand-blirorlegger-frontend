@@ -1,4 +1,22 @@
 .slider {
+    .left-arrow,
+    .right-arrow {
+        display: flex;
+        position: absolute;
+        height: 500px;
+        align-items: center;
+        z-index: 2;
+        .left-icon,
+        .right-icon {
+            height: 100px;
+            width: 100px;
+            color: $light;
+        }
+    }
+
+    .right-arrow {
+        right: 0;
+    }
     .card-grid.container {
         padding-left: 0;
         padding-right: 0;
@@ -8,24 +26,24 @@
                 min-width: 100vw;
                 text-align: center;
                 color: $primary;
+                padding-top: 20px;
                 padding-bottom: 40px;
-                span{
+                span {
                     &::after {
-                        display:block;
-                        clear:both;
-                        content : "";
+                        display: block;
+                        clear: both;
+                        content: "";
                         position: relative;
-                        left    : 0;
-                        bottom  : 0;
-                        max-width:100px;
-                        height  : 2px;
-                        width   : 50%;  /* or 100px */
-                        border-bottom:2px solid $primary;
-                        margin:0 auto;
-                        padding:4px 0px;
+                        left: 0;
+                        bottom: 0;
+                        max-width: 100px;
+                        height: 2px;
+                        width: 50%; /* or 100px */
+                        border-bottom: 2px solid $primary;
+                        margin: 0 auto;
+                        padding: 4px 0px;
                     }
                 }
-                
             }
         }
     }
@@ -46,10 +64,24 @@
     }
 }
 
+.info.container {
+    margin-bottom: 50px;
+    a {
+        color: $primary;
+        text-underline-offset: 3px;
+    }
+}
+
+@media (min-width: 598px) {
+    .slider {
+        .card-grid.container {
+           max-width: 100%;
+        }
+    }
+}
 
 @media (min-width: 769px) {
-
-    .slider{
+    .slider {
         display: none;
     }
 
@@ -74,20 +106,20 @@
                 text-align: center;
                 color: $primary;
                 padding-bottom: 40px;
-                span{
+                span {
                     &::after {
-                        display:block;
-                        clear:both;
-                        content : "";
+                        display: block;
+                        clear: both;
+                        content: "";
                         position: relative;
-                        left    : 0;
-                        bottom  : 0;
-                        max-width:100px;
-                        height  : 2px;
-                        width   : 50%;
-                        border-bottom:2px solid $primary;
-                        margin:0 auto;
-                        padding:4px 0px;
+                        left: 0;
+                        bottom: 0;
+                        max-width: 100px;
+                        height: 2px;
+                        width: 50%;
+                        border-bottom: 2px solid $primary;
+                        margin: 0 auto;
+                        padding: 4px 0px;
                     }
                 }
             }

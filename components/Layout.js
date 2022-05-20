@@ -22,8 +22,12 @@ const Layout = ({ data, ambassadorer }) => {
         <>
             {/* Video carousel for mobile version */}
             <section className="slider">
-                <CgChevronLeft className="left-arrow" onClick={prevSlide} />
-                <CgChevronRight className="right-arrow" onClick={nextSlide} />
+                <div className="left-arrow">
+                <CgChevronLeft className="left-icon" onClick={prevSlide} />
+                </div>
+                <div className="right-arrow">
+                <CgChevronRight className="right-icon" onClick={nextSlide} />
+                </div>
 
                 <div className="card-grid container">
                     {ambassadorer.map(({ node }, index ) => {
@@ -45,7 +49,7 @@ const Layout = ({ data, ambassadorer }) => {
                 </div>
             </div>
 
-            <Container>
+            <Container className="info">
                 <h2>{data.title}</h2>
                 <div
                     dangerouslySetInnerHTML={{
