@@ -75,12 +75,12 @@
 @media (min-width: 598px) {
     .slider {
         .card-grid.container {
-           max-width: 100%;
+            max-width: 100%;
         }
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     .slider {
         display: none;
     }
@@ -97,9 +97,11 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-
+            margin-left: auto !important;
+            margin-right: auto !important;
             .video-card {
                 position: relative;
+                grid-row: 1;
             }
 
             .card-info {
@@ -123,6 +125,17 @@
                     }
                 }
             }
+        }
+    }
+
+    .info.container {
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        .p1 {
+            margin-bottom: 30px;
         }
     }
 }

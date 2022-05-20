@@ -1,6 +1,5 @@
 import { Carousel, Container } from "react-bootstrap";
 import VideoCard from "../components/videoCard";
-import VideoCardMobile from "../components/videoCardMobile";
 import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
 import { useState } from "react";
 
