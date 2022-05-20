@@ -1,23 +1,60 @@
+.slider{
+  background-color: $page-background;
+}
+.video-card{
+  max-width: 500px;
+}
+
+.openModal {
+  background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTEycHgiIGhlaWdodD0iMTI3cHgiIHZpZXdCb3g9IjAgMCAxMTIgMTI3IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPHRpdGxlPkNvbWJpbmVkIFNoYXBlPC90aXRsZT4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJEZXNrdG9wLWZvcnNpZGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00MzEuMDAwMDAwLCAtMTM3LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQzMS4wMDAwMDAsIDEzNy45MTIzNjApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik01NiwwIEM4Ni45Mjc5NDYsMCAxMTIsMjUuMDcyMDU0IDExMiw1NiBDMTEyLDgyLjY2NTkzMjggOTMuMzYxOTEzNiwxMDQuOTc4NzA3IDY4LjQwMjE0MDIsMTEwLjYyMTkyNCBMNTMuOTQwNTAzNiwxMjYuMTc1Mjc5IEw1Mi4zNjg4NzE2LDExMS44ODQxNjQgQzIzLjEzMzI0NCwxMTAuMDEzMDc1IDAsODUuNzA4MDY2NyAwLDU2IEMwLDI1LjA3MjA1NCAyNS4wNzIwNTQsMCA1NiwwIFoiIGlkPSJDb21iaW5lZC1TaGFwZSI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=");
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 200px;
+  left: auto;
+  height: 130px;
+  width: 115px;
+  right: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  color: $primary;
+  .text {
+      text-align: center;
+      padding-bottom: 20px;
+  }
+}
+
+
 .questionModal {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: rgba(79, 0, 197, 0.5);
-    z-index: 1;
-
+    height: 700px;
+    background-color: $page-background;
+    z-index: 2;
+    flex-wrap: wrap;
+    min-height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
 
     .modalGrid {
         position: relative;
         display: grid;
-        grid-template-columns: 40% auto;
+        grid-template-columns:1fr;
         gap: 30px;
         z-index: 999;
+        background-color: $page-background;
+        min-width: 100vw;
+        padding-bottom: 1000px;
+        padding-top: 100px;
 
+        .modal-video{
+            margin-left: auto;
+            margin-right: auto;
+        }
         .questions {
             background-color: #fff;
             color: #000;
@@ -31,6 +68,8 @@
             cursor: pointer;
             max-width: 460px;
             width: 100%;
+            margin-left: auto;
+            margin-right: auto;
 
             .closeButton {
                 position: absolute;
@@ -46,15 +85,18 @@
   body.modal-open {
     overflow: hidden;
 }
+.questionModal {
+    .modalGrid{
+      grid-template-columns: 40% auto;
+    }
+  }
 }
 
-@media (max-width: 768px) {
-  .questionModal {
-  flex-wrap: wrap;
-  min-height: 100%;
-  .modalGrid{
-    grid-template-columns: 1fr;
-    min-height: 100%;
-  }
-  }
-}
+// @media (max-width: 768px) {
+//   .questionModal {
+//   .modalGrid{
+//     grid-template-columns: 1fr;
+//     min-height: 100%;
+//   }
+//   }
+// }

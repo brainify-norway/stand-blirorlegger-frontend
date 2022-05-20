@@ -1,43 +1,41 @@
 import { Carousel, Container } from "react-bootstrap";
 import VideoCard from "../components/videoCard";
 import VideoCardMobile from "../components/videoCardMobile";
+import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
+import { useState } from "react";
 
 const Layout = ({ data, ambassadorer }) => {
+    // function for mobile slider here
+    const [current, setCurrent] = useState(0);
+    const length = ambassadorer.length;
+
+    const nextSlide = () => {
+        setCurrent(current === length - 1 ? 0 : current + 1);
+    };
+
+    const prevSlide = () => {
+        setCurrent(current === 0 ? length - 1 : current - 1);
+    };
+    // console.log(current);
 
     return (
         <>
-        {/* Video carousel for mobile version */}
-            <Carousel interval={null} >
-                <Carousel.Item>
-                    <div className="card-grid container">
-                        <VideoCardMobile
-                            key={ambassadorer[0].node.id}
-                            item={ambassadorer[0].node}
+            {/* Video carousel for mobile version */}
+            <section className="slider">
+                <CgChevronLeft className="left-arrow" onClick={prevSlide} />
+                <CgChevronRight className="right-arrow" onClick={nextSlide} />
 
-                        />
-                    </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <div className="card-grid container">
-                        <VideoCardMobile
-                            key={ambassadorer[1].node.id}
-                            item={ambassadorer[1].node}
-                        />
-                        
-                    </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <div className="card-grid container">
-                        <VideoCardMobile
-                            key={ambassadorer[2].node.id}
-                            item={ambassadorer[2].node}
-                        />
-                    
-                    </div>
-                </Carousel.Item>
-            </Carousel>
-
-
+                <div className="card-grid container">
+                    {ambassadorer.map(({ node }, index ) => {
+                        return (
+                            <div className={index === current ? 'slide active': 'slide'} key={index}>
+                                {index === current && (<VideoCard key={node.id} item={node} />)}
+                                
+                            </div>
+                        );
+                    })}
+                </div>
+            </section>
 
             <div className="__inner bg">
                 <div className="card-grid container">

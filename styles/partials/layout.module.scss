@@ -1,88 +1,57 @@
-// .Layout {
-//     background-color: $page-background;
-// }
-
-
-
-.carousel.slide {
-    button {
-        display: none;
-    }
-    .carousel-inner {
-        .carousel-item {
-            background-color: $page-background;
-            backface-visibility:visible;
-
-            .card-grid.container {
-                padding: 0;
-                margin: 0;
-                .card-info {
-                    text-align: center;
-                    color: $primary;
-                    background-color: $light;
-                    width: 100vw;
-                    height: 110px;
-                    span{
-                        padding-bottom: 10px;
-                        border-bottom: 2px solid $primary;
+.slider {
+    .card-grid.container {
+        padding-left: 0;
+        padding-right: 0;
+        .slide {
+            .card-info {
+                background-color: $light;
+                min-width: 100vw;
+                text-align: center;
+                color: $primary;
+                padding-bottom: 40px;
+                span{
+                    &::after {
+                        display:block;
+                        clear:both;
+                        content : "";
+                        position: relative;
+                        left    : 0;
+                        bottom  : 0;
+                        max-width:100px;
+                        height  : 2px;
+                        width   : 50%;  /* or 100px */
+                        border-bottom:2px solid $primary;
+                        margin:0 auto;
+                        padding:4px 0px;
                     }
                 }
+                
             }
         }
-    }
-    .carousel-control-prev, .carousel-control-next {
-        opacity: 1;
-        .carousel-control-prev-icon, .carousel-control-next-icon{
-            width: 70px;
-            height: 70px;
-        }
-    }
-}
-
-.openModal {
-    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTEycHgiIGhlaWdodD0iMTI3cHgiIHZpZXdCb3g9IjAgMCAxMTIgMTI3IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPHRpdGxlPkNvbWJpbmVkIFNoYXBlPC90aXRsZT4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJEZXNrdG9wLWZvcnNpZGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00MzEuMDAwMDAwLCAtMTM3LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQzMS4wMDAwMDAsIDEzNy45MTIzNjApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik01NiwwIEM4Ni45Mjc5NDYsMCAxMTIsMjUuMDcyMDU0IDExMiw1NiBDMTEyLDgyLjY2NTkzMjggOTMuMzYxOTEzNiwxMDQuOTc4NzA3IDY4LjQwMjE0MDIsMTEwLjYyMTkyNCBMNTMuOTQwNTAzNiwxMjYuMTc1Mjc5IEw1Mi4zNjg4NzE2LDExMS44ODQxNjQgQzIzLjEzMzI0NCwxMTAuMDEzMDc1IDAsODUuNzA4MDY2NyAwLDU2IEMwLDI1LjA3MjA1NCAyNS4wNzIwNTQsMCA1NiwwIFoiIGlkPSJDb21iaW5lZC1TaGFwZSI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=");
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 2px;
-    left: auto;
-    height: 130px;
-    width: 115px;
-    right: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    color: $primary;
-    .text {
-        text-align: center;
-        padding-bottom: 20px;
     }
 }
 
 .__inner {
     display: none;
-    // &.bg {
-    //     background: linear-gradient($page-background 500px, #fff 100px);
-
-    //     @media (max-width: 768px) {
-    //         background: #fff;
-
-    //     }
-    // }
 
     .card-grid {
-            grid-template-columns: 100%;
-            &.container {
-                padding: 0;
-                margin: 0;
-            }
-            .video-card {
-                background-color: $page-background;
-            }
+        grid-template-columns: 100%;
+        &.container {
+            padding: 0;
+            margin: 0;
         }
+        .video-card {
+            background-color: $page-background;
+        }
+    }
 }
 
+
 @media (min-width: 769px) {
+
+    .slider{
+        display: none;
+    }
 
     .__inner {
         &.bg {
@@ -96,15 +65,31 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-    
+
             .video-card {
                 position: relative;
             }
-    
+
             .card-info {
                 text-align: center;
                 color: $primary;
-                padding-bottom: 50px;
+                padding-bottom: 40px;
+                span{
+                    &::after {
+                        display:block;
+                        clear:both;
+                        content : "";
+                        position: relative;
+                        left    : 0;
+                        bottom  : 0;
+                        max-width:100px;
+                        height  : 2px;
+                        width   : 50%;
+                        border-bottom:2px solid $primary;
+                        margin:0 auto;
+                        padding:4px 0px;
+                    }
+                }
             }
         }
     }

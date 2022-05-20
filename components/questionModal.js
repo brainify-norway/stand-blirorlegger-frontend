@@ -13,7 +13,7 @@ export default function QuestionModal({ questions, open, setOpen, waitingVid }) 
         <>
             <div key={questions.id} className="questionModal">
                 <div className="modalGrid">
-                    <div style={{width: "500px"}}>
+                    <div className="modal-video">
                         <Video url={currentVid} />
                     </div>
                     <div className="questions">
