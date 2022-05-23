@@ -1,4 +1,5 @@
 .slider {
+    background-color: $page-background;
     .left-arrow,
     .right-arrow {
         display: flex;
@@ -13,7 +14,6 @@
             color: $light;
         }
     }
-
     .right-arrow {
         right: 0;
     }
@@ -21,6 +21,19 @@
         padding-left: 0;
         padding-right: 0;
         .slide {
+            .video-card {
+                max-width: 500px;
+                margin-right: auto;
+                margin-left: auto;
+                display: flex;
+                align-items: flex-end;
+            }
+
+            .openModal {
+                top: 150px;
+                right: 30%;
+            }
+
             .card-info {
                 background-color: $light;
                 min-width: 100vw;
@@ -38,7 +51,7 @@
                         bottom: 0;
                         max-width: 100px;
                         height: 2px;
-                        width: 50%; /* or 100px */
+                        width: 50%;
                         border-bottom: 2px solid $primary;
                         margin: 0 auto;
                         padding: 4px 0px;
@@ -57,10 +70,15 @@
         &.container {
             padding: 0;
             margin: 0;
-        }
+
         .video-card {
             background-color: $page-background;
+        }      
+        .openModal {
+            top: -60px;
+            right: 10%;
         }
+      }
     }
 }
 
@@ -102,6 +120,10 @@
             .video-card {
                 position: relative;
                 grid-row: 1;
+            }
+
+            .openModal {
+                top: 10px;
             }
 
             .card-info {
