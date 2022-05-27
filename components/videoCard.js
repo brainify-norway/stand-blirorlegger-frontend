@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import QuestionModal from "../components/questionModal";
 
+
 export default function VideoCard({ item }) {
     const [open, setOpen] = useState(false);
 
@@ -24,7 +25,9 @@ export default function VideoCard({ item }) {
                     loop
                     muted
                 >
-                   { item.acf.featuredVideo && <source src={item.acf.featuredVideo.mediaItemUrl} />}
+                   {/* { item.acf.featuredVideo && <source src={item.acf.featuredVideo.mediaItemUrl} />} */}
+
+                   <source src="/are-testklipp-1.mp4" />
                 </video>
                 <div className="openModal" onClick={() => setOpen(true)}>
                     <span className="text">Still meg et spørsmål</span>
