@@ -27,7 +27,7 @@ export default function VideoCard({ item }) {
                 >
                    {/* { item.acf.featuredVideo && <source src={item.acf.featuredVideo.mediaItemUrl} />} */}
 
-                   <source src="/are-testklipp-1.mp4" />
+                   <source src="/video-1.webm" />
                 </video>
                 <div className="openModal" onClick={() => setOpen(true)}>
                     <span className="text">Still meg et spørsmål</span>
