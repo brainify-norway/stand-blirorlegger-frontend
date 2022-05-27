@@ -25,9 +25,9 @@ export default function VideoCard({ item }) {
                     loop
                     muted
                 >
-                   {/* { item.acf.featuredVideo && <source src={item.acf.featuredVideo.mediaItemUrl} />} */}
+                   { item.acf.featuredVideo && <source src={item.acf.featuredVideo.mediaItemUrl} />}
 
-                   <source src="/video-1.webm" />
+                   {/* <source src={} /> */}
                 </video>
                 <div className="openModal" onClick={() => setOpen(true)}>
                     <span className="text">Still meg et spørsmål</span>
