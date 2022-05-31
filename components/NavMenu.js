@@ -15,17 +15,9 @@ import { GrFormClose } from "react-icons/gr";
 const NavMenu = () => {
     const [open, setOpen] = useState(false);
 
-    const handleBurger = () => {
-        setOpen(!open);
-    };
-
-    // useEffect(() => {
-    //     if (open) {
-    //         document.querySelector("bt-burger").add("menu-open");
-    //     } else {
-    //         document.querySelector("btn-burger").remove("menu-open");
-    //     }
-    // });
+    // const handleBurger = () => {
+    //     setOpen(!open);
+    // };
 
     return (
         <>
@@ -52,10 +44,10 @@ const NavMenu = () => {
                         </div>
                         <Collapse in={open}>
                            <Nav id="nav-menu">
-                                <Link href="/">Forsiden</Link>
-                                <Link href="/">Arbeidsliv</Link>
-                                <Link href="/">Kontakt oss</Link>
-                                <Link href="/">
+                                <Link className="menu-link" href="https://blirorlegger.no/">Forsiden</Link>
+                                <Link className="menu-link" href="https://blirorlegger.no/arbeidsliv/">Arbeidsliv</Link>
+                                <Link className="menu-link" href="https://blirorlegger.no/kontakt/">Kontakt oss</Link>
+                                <Link className="menu-link" href="https://blirorlegger.no/rorambassadorer/">
                                     Våre ambassadører
                                 </Link>  
 

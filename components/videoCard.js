@@ -4,12 +4,7 @@ import QuestionModal from "../components/questionModal";
 export default function VideoCard({ item }) {
     const [open, setOpen] = useState(false);
 
-    if (!item.acf.featuredVideo) {
-        console.log("test");
-    }
-    console.log(item.acf.featuredVideo);
 
-    useEffect(() => {});
 
     return (
         <>
