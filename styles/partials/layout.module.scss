@@ -6,12 +6,15 @@
         position: absolute;
         height: 500px;
         align-items: center;
-        z-index: 2;
+        z-index: 1;
         .left-icon,
         .right-icon {
             height: 100px;
             width: 100px;
             color: $light;
+            svg{
+                z-index: 1 !important;
+            }
         }
     }
     .right-arrow {
