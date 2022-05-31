@@ -10,6 +10,8 @@
         align-items: center;
         z-index: 1;
         color: $primary;
+        cursor: pointer;
+
         .text {
             text-align: center;
             padding-bottom: 20px;
@@ -42,8 +44,11 @@
         padding-top: 100px;
 
         .modal-video {
+            margin-top: auto;
             margin-left: auto;
             margin-right: auto;
+            height: 499px;
+            overflow: hidden;
         }
         .questions {
             background-color: #fff;
