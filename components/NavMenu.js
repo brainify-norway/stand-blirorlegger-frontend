@@ -8,22 +8,18 @@ import {
 } from "react-bootstrap";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { GrFormClose } from "react-icons/gr";
 
 const NavMenu = () => {
     const [open, setOpen] = useState(false);
 
-    // const handleBurger = () => {
-    //     setOpen(!open);
-    // };
-
     return (
         <>
             <Navbar expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="https://www.rornorge.no">
                         <Image
                             src="/logo-blir-rorlegger.svg"
                             alt="Picture of the author"
@@ -43,14 +39,31 @@ const NavMenu = () => {
                             <GrFormClose className="close-icon" />
                         </div>
                         <Collapse in={open}>
-                           <Nav id="nav-menu">
-                                <Link className="menu-link" href="https://blirorlegger.no/">Forsiden</Link>
-                                <Link className="menu-link" href="https://blirorlegger.no/arbeidsliv/">Arbeidsliv</Link>
-                                <Link className="menu-link" href="https://blirorlegger.no/kontakt/">Kontakt oss</Link>
-                                <Link className="menu-link" href="https://blirorlegger.no/rorambassadorer/">
+                            <Nav id="nav-menu">
+                                <Link
+                                    className="menu-link"
+                                    href="https://blirorlegger.no/"
+                                >
+                                    Forsiden
+                                </Link>
+                                <Link
+                                    className="menu-link"
+                                    href="https://blirorlegger.no/arbeidsliv/"
+                                >
+                                    Arbeidsliv
+                                </Link>
+                                <Link
+                                    className="menu-link"
+                                    href="https://blirorlegger.no/kontakt/"
+                                >
+                                    Kontakt oss
+                                </Link>
+                                <Link
+                                    className="menu-link"
+                                    href="https://blirorlegger.no/rorambassadorer/"
+                                >
                                     Våre ambassadører
-                                </Link>  
-
+                                </Link>
                             </Nav>
                         </Collapse>
                     </div>

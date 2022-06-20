@@ -1,3 +1,27 @@
+.spinner-wrapper {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    .loading {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 100px;
+        padding-top: 100px;
+        border: 1em solid $primary;
+        border-right-color: transparent;
+    }
+    .three-points {
+        background-color: $primary;
+        &:first-child {
+            margin-left: auto;
+        }
+        &:last-child {
+            margin-right: auto;
+        }
+    }
+}
+
 .slider {
     background-color: $page-background;
     .left-arrow,
@@ -12,11 +36,12 @@
             height: 100px;
             width: 100px;
             color: $light;
-            svg{
+            svg {
                 z-index: 1 !important;
             }
         }
     }
+
     .right-arrow {
         right: 0;
     }
@@ -160,6 +185,11 @@
             text-align: center;
             margin-bottom: 40px;
             margin-top: 20px;
+        }
+        p {
+            margin: 1rem auto;
+            max-width: 600px;
+            text-align: center;
         }
         .p1 {
             margin-bottom: 30px;

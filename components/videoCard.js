@@ -1,10 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import QuestionModal from "../components/questionModal";
+import Router from "next/router";
 
 export default function VideoCard({ item }) {
     const [open, setOpen] = useState(false);
 
+    // const [loading, setLoading] = useState(false);
 
+    // Router.events.on("routeChangeStart", (url) => {
+    //     console.log("testing router loading");
+    // });
 
     return (
         <>

@@ -1,12 +1,18 @@
-import { Carousel, Container } from "react-bootstrap";
+import { Carousel, Container, Spinner } from "react-bootstrap";
 import VideoCard from "../components/videoCard";
 import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Layout = ({ data, ambassadorer }) => {
     // function for mobile slider here
     const [current, setCurrent] = useState(0);
     const length = ambassadorer.length;
+
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+    }, []);
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1);
@@ -20,49 +26,144 @@ const Layout = ({ data, ambassadorer }) => {
     return (
         <>
             {/* Video carousel for mobile version */}
-            <section className="slider">
+            <section className="slider mobile">
                 <div className="left-arrow">
-                <CgChevronLeft className="left-icon" onClick={prevSlide} />
+                    <CgChevronLeft className="left-icon" onClick={prevSlide} />
                 </div>
                 <div className="right-arrow">
-                <CgChevronRight className="right-icon" onClick={nextSlide} />
+                    <CgChevronRight
+                        className="right-icon"
+                        onClick={nextSlide}
+                    />
                 </div>
 
                 <div className="card-grid container">
-                    {ambassadorer.map(({ node }, index ) => {
-                        return (
-                            <div className={index === current ? 'slide active': 'slide'} key={index}>
-                                {index === current && (<VideoCard key={node.id} item={node} />)}
-                                
-                            </div>
-                        );
-                    })}
+                    {loading ? (
+                        ambassadorer.map(({ node }, index) => {
+                            return (
+                                <div
+                                    className={
+                                        index === current
+                                            ? "slide active"
+                                            : "slide"
+                                    }
+                                    key={index}
+                                >
+                                    {index === current && (
+                                        <VideoCard key={node.id} item={node} />
+                                    )}
+                                </div>
+                            );
+                        })
+                    ) : (
+                        <div className="spinner-wrapper">
+                            <Spinner
+                                animation="border"
+                                role="status"
+                                className="loading"
+                            >
+                                <span className="visually-hidden">
+                                    Loading...
+                                </span>
+                            </Spinner>
+                        </div>
+                    )}
                 </div>
             </section>
 
-            <div className="__inner bg">
+            <div className="__inner bg desktop">
                 <div className="card-grid container">
-                    {ambassadorer.map(({ node }) => {
-                        return <VideoCard key={node.id} item={node} />;
-                    })}
+                    {loading ? (
+                        ambassadorer.map(({ node }) => {
+                            return (
+                                <>
+                                    <VideoCard key={node.id} item={node} />
+                                </>
+                            );
+                        })
+                    ) : (
+                        <>
+                            <div className="spinner-wrapper">
+                                <Spinner
+                                    animation="border"
+                                    role="status"
+                                    className="loading"
+                                >
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </Spinner>
+                            </div>
+                            <div className="spinner-wrapper">
+                                <Spinner
+                                    animation="border"
+                                    role="status"
+                                    className="loading"
+                                >
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </Spinner>
+                            </div>
+                            <div className="spinner-wrapper">
+                                <Spinner
+                                    animation="border"
+                                    role="status"
+                                    className="loading"
+                                >
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </Spinner>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
 
             <Container className="info">
-                <h2>{data.title}</h2>
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: data.content
-                    }}
-                />
-                <p>{data.eventTitle}</p>
-                {data.events.map((i) => {
-                    return (
-                        <p key={i.event} className="eventItem">
-                            {i.event}
-                        </p>
-                    );
-                })}
+                {loading ? (
+                    <>
+                        <h2>{data.title}</h2>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: data.content
+                            }}
+                        />
+                        <p>{data.eventTitle}</p>
+                        {data.events.map((i) => {
+                            return (
+                                <p key={i.event} className="eventItem">
+                                    {i.event}
+                                </p>
+                            );
+                        })}
+                    </>
+                ) : (
+                    <div className="spinner-wrapper">
+                        <Spinner
+                            animation="grow"
+                            role="status"
+                            className="three-points"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                        <Spinner
+                            animation="grow"
+                            role="status"
+                            className="three-points"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                        <Spinner
+                            animation="grow"
+                            role="status"
+                            className="three-points"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    </div>
+                )}
             </Container>
         </>
     );
