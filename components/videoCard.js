@@ -1,15 +1,8 @@
 import { useState } from "react";
 import QuestionModal from "../components/questionModal";
-import Router from "next/router";
 
 export default function VideoCard({ item }) {
     const [open, setOpen] = useState(false);
-
-    // const [loading, setLoading] = useState(false);
-
-    // Router.events.on("routeChangeStart", (url) => {
-    //     console.log("testing router loading");
-    // });
 
     return (
         <>
@@ -43,12 +36,14 @@ export default function VideoCard({ item }) {
             </div>
 
             {open && (
-                <QuestionModal
-                    waitingVid={item.acf.featuredVideo.mediaItemUrl}
-                    open={open}
-                    setOpen={setOpen}
-                    questions={item.videos.questions}
-                />
+                <>
+                    <QuestionModal
+                        waitingVid={item.acf.featuredVideo.mediaItemUrl}
+                        open={open}
+                        setOpen={setOpen}
+                        questions={item.videos.questions}
+                    />
+                </>
             )}
         </>
     );
