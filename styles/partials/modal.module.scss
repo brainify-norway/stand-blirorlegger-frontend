@@ -148,7 +148,8 @@ label:focus,
             grid-template-columns: 40% auto;
         }
         .questions {
-            position: relative;
+            position: relative !important;
+            top: 0 !important;
         }
     }
 }
