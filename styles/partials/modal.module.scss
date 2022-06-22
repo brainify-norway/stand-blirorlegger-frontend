@@ -19,13 +19,30 @@
     }
 }
 
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+    outline: 0px !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+}
+
 .questionModal {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 700px;
-    // background-color: $page-background;
+
     z-index: 2;
     flex-wrap: wrap;
     min-height: 100%;
@@ -41,7 +58,7 @@
         background-color: rgb(5, 114, 92);
         min-width: 100vw;
         padding-bottom: 1000px;
-        padding-top: 100px;
+        padding-top: 30px;
 
         .modal-video {
             display: flex;
@@ -51,16 +68,25 @@
             margin-right: auto;
             height: 529px;
             overflow: hidden;
-            .btn-primary {
-                .mute-button {
+            #muted {
+                &.btn-primary {
+                    background: transparent;
+                    border: none;
+                    width: 20px;
                     margin-left: auto;
                     margin-right: auto;
-                    color: $secondary;
-                    height: 40px;
-                    width: 40px;
+                    .mute-button,
+                    .sound-button {
+                        margin-left: auto;
+                        margin-right: auto;
+                        color: $secondary;
+                        height: 40px;
+                        width: 40px;
+                    }
+                    :hover {
+                        color: rgba($secondary, 0.5);
+                    }
                 }
-            }
-            #muted {
                 &.mute {
                     .mute-button {
                         display: block;
@@ -78,6 +104,10 @@
                     }
                 }
             }
+            .soundVideo {
+                width: 300px !important;
+                height: 500px !important;
+            }
         }
         .questions {
             background-color: #fff;
@@ -88,18 +118,22 @@
             flex-direction: column;
             gap: 10px;
             z-index: 999;
-            position: relative;
+            // position: relative;
+            position: absolute;
             cursor: pointer;
             max-width: 460px;
             width: 100%;
             margin-left: auto;
             margin-right: auto;
-
+            top: 350px;
             .closeButton {
                 position: absolute;
                 top: 15px;
                 right: 15px;
                 cursor: pointer;
+            }
+            span:hover {
+                color: rgba($textPar, 0.5);
             }
         }
     }
@@ -112,6 +146,9 @@
     .questionModal {
         .modalGrid {
             grid-template-columns: 40% auto;
+        }
+        .questions {
+            position: relative;
         }
     }
 }

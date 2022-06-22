@@ -5,35 +5,37 @@ import ReactPlayer from "react-player";
 
 export default function VideoPlayer({ url, muted, volume }) {
     const [muteBtn, setMutedBtn] = useState({
-        muted: false
+        muted: !muted
     });
 
     const [hasSound, setHasSound] = useState("false");
 
     const handleToggleMuted = (e) => {
         e.preventDefault();
-        setHasSound(!hasSound);
-
         setMutedBtn({
             muted: !muteBtn
         });
     };
 
     const handleToggleSound = (e) => {
-        e.preventDefault();
-        setHasSound(hasSound);
-
         setMutedBtn({
             muted: muteBtn
         });
         console.log("test this");
     };
 
-    const changeSound = () => {};
+    const changeSound = () => {
+        setHasSound((hasSound) => !hasSound);
+        setMutedBtn((MuteBtn) => !MuteBtn);
+    };
 
     return (
         <>
-            <Button id="muted" className={hasSound ? "mute" : "sound"}>
+            <Button
+                id="muted"
+                className={hasSound ? "mute" : "sound"}
+                onClick={changeSound}
+            >
                 <GoMute className="mute-button" onClick={handleToggleMuted} />
                 <GoUnmute
                     className="sound-button"
@@ -53,7 +55,9 @@ export default function VideoPlayer({ url, muted, volume }) {
                 url={url}
                 playing={true}
                 volume={volume}
-                muted={() => (false ? handleToggleMuted : handleToggleSound)}
+                muted={() => {
+                    changeSound;
+                }}
             ></ReactPlayer>
         </>
     );

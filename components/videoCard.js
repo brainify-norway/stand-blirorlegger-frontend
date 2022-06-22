@@ -21,6 +21,7 @@ export default function VideoCard({ item }) {
                             <source src={item.acf.featuredVideo.mediaItemUrl} />
                         )}
                     </video>
+                    <div className="hide-video-line"></div>
                 </div>
                 <div className="openModal" onClick={() => setOpen(true)}>
                     <span className="text">Still meg et spørsmål</span>

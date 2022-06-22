@@ -53,11 +53,18 @@
                 max-width: 500px;
                 margin-right: auto;
                 margin-left: auto;
+                .video-box {
+                    border-bottom: 2px solid $page-background;
+                    video {
+                        margin-bottom: -8px;
+                        z-index: 1 !important;
+                    }
+                }
             }
 
             .openModal {
                 top: 150px;
-                right: 30%;
+                right: 1%;
             }
 
             .card-info {
