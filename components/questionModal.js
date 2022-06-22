@@ -3,6 +3,7 @@ import Video from "./video";
 import { CloseIcon } from "./icons";
 import { GoMute } from "react-icons/go";
 import { Button } from "react-bootstrap";
+import VideoPlayer from "./videoPlayer";
 
 export default function QuestionModal({
     questions,
@@ -15,32 +16,12 @@ export default function QuestionModal({
         setCurrentVid(url);
     }
 
-    const editRef = useRef();
-    const [mute, setMute] = useState("");
-    const muteVideo = document.getElementsByClassName("soundVideo");
-
-    function handleMute() {
-        editRef.current = muteVideo.muted;
-        console.log(editRef);
-
-        muteVideo.muted = true;
-
-        console.log("testing click");
-    }
-
     return (
         <>
             <div key={questions.id} className="questionModal">
                 <div className="modalGrid">
                     <div className="modal-video">
-                        <Button onClick={() => handleMute()}>
-                            <GoMute className="mute-button" />
-                        </Button>
-                        <Video
-                            ref={editRef}
-                            url={currentVid}
-                            onChange={(e) => setMute(muteVideo.muted)}
-                        />
+                        <VideoPlayer url={currentVid} />
                     </div>
                     <div className="questions">
                         {questions.map((question) => {

@@ -51,12 +51,32 @@
             margin-right: auto;
             height: 529px;
             overflow: hidden;
-            .mute-button {
-                margin-left: auto;
-                margin-right: auto;
-                color: $secondary;
-                height: 40px;
-                width: 40px;
+            .btn-primary {
+                .mute-button {
+                    margin-left: auto;
+                    margin-right: auto;
+                    color: $secondary;
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+            #muted {
+                &.mute {
+                    .mute-button {
+                        display: block;
+                    }
+                    .sound-button {
+                        display: none;
+                    }
+                }
+                &.sound {
+                    .mute-button {
+                        display: none;
+                    }
+                    .sound-button {
+                        display: block;
+                    }
+                }
             }
         }
         .questions {
