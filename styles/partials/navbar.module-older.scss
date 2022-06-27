@@ -15,20 +15,52 @@
     }
     .container {
         .hamburger-dropdown {
+            z-index: 2;
             position: relative;
-            width: 40px;
-            height: 40px;
-
+            max-width: 40px;
+            max-height: 40px;
             overflow: hidden !important;
-            z-index: 5;
-            &.open {
-                background: url("../../public/burger.svg");
-                background-repeat: no-repeat;
+            background: url("../../public/burger.svg");
+            background-repeat: no-repeat;
+            .open-btn {
+                position: relative;
+                min-height: 40px !important;
+                min-width: 40px !important;
+                .open-icon {
+                    stroke: $secondary;
+                    min-height: 40px !important;
+                    min-width: 40px !important;
+                    text-align: right;
+                    margin-left: auto;
+                    position: relative;
+                    top: 0px;
+                    right: 0px;
+                }
+                .close-icon {
+                    display: none;
+                }
             }
-
-            &.close {
-                background: url("../../public/close.svg");
-                background-repeat: no-repeat;
+            .close-btn {
+                position: relative;
+                min-height: 40px !important;
+                min-width: 40px !important;
+                .open-icon {
+                    path {
+                        display: none;
+                    }
+                }
+                .close-icon {
+                    display: block;
+                    height: 40px;
+                    width: 40px;
+                    position: fixed;
+                    top: 50px;
+                    right: 10px;
+                    z-index: 5;
+                    path {
+                        stroke: $secondary;
+                    }
+                }
             }
         }
 
@@ -40,7 +72,7 @@
             position: fixed;
             left: 0;
             top: 0;
-            z-index: 3;
+            z-index: 4;
             justify-content: center;
 
             .nav-link,
