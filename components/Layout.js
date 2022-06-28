@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const Layout = ({ data, ambassadorer }) => {
     // function for mobile slider here
     const [current, setCurrent] = useState(0);
+    const [open, setOpen] = useState(false);
     const length = ambassadorer.length;
 
     const [loading, setLoading] = useState(false);
@@ -50,7 +51,12 @@ const Layout = ({ data, ambassadorer }) => {
                                     key={index}
                                 >
                                     {index === current && (
-                                        <VideoCard key={node.id} item={node} />
+                                        <VideoCard
+                                            key={node.id}
+                                            item={node}
+                                            open={open}
+                                            setOpen={setOpen}
+                                        />
                                     )}
                                 </div>
                             );
@@ -77,7 +83,12 @@ const Layout = ({ data, ambassadorer }) => {
                         ambassadorer.map(({ node }) => {
                             return (
                                 <>
-                                    <VideoCard key={node.id} item={node} />
+                                    <VideoCard
+                                        key={node.id}
+                                        item={node}
+                                        open={open}
+                                        setOpen={setOpen}
+                                    />
                                 </>
                             );
                         })

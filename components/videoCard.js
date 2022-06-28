@@ -1,31 +1,38 @@
 import { useState } from "react";
-import QuestionModal from "../components/questionModal";
+import Video from "./video";
+import QuestionModal from "./questionModal";
 
 export default function VideoCard({ item }) {
     const [open, setOpen] = useState(false);
+    const [mute, setMute] = useState(false);
+    const [currentVid, setCurrentVid] = useState(
+        item.acf.featuredVideo.mediaItemUrl
+    );
 
     return (
         <>
-            <div key={item.id} className="video-card">
+            <div key={item.id} className={"video-card " + item.slug}>
+                <span
+                    className={
+                        currentVid !== item.acf.featuredVideo.mediaItemUrl
+                            ? "button showBtn"
+                            : "button hideBtn"
+                    }
+                >
+                    <button
+                        onClick={() => setMute(!mute)}
+                        className={mute ? "muted " : "unmuted "}
+                    ></button>
+                </span>
                 <div className="video-box">
-                    <video
-                        style={{
-                            width: "100%",
-                            height: "500px"
-                        }}
-                        autoPlay
-                        loop
-                        muted
-                    >
-                        {item.acf.featuredVideo && (
-                            <source src={item.acf.featuredVideo.mediaItemUrl} />
-                        )}
-                    </video>
+                    <Video url={currentVid} mute={mute} />
                     <div className="hide-video-line"></div>
                 </div>
-                <div className="openModal" onClick={() => setOpen(true)}>
-                    <span className="text">Still meg et spørsmål</span>
-                </div>
+                <QuestionModal
+                    questions={item.videos.questions}
+                    currentVid={currentVid}
+                    setCurrentVid={setCurrentVid}
+                />
             </div>
             <div className="card-info">
                 <h3>
@@ -35,17 +42,6 @@ export default function VideoCard({ item }) {
                     {item.acf.speciality}, {item.acf.arbeidsgiver}
                 </span>
             </div>
-
-            {open && (
-                <>
-                    <QuestionModal
-                        waitingVid={item.acf.featuredVideo.mediaItemUrl}
-                        open={open}
-                        setOpen={setOpen}
-                        questions={item.videos.questions}
-                    />
-                </>
-            )}
         </>
     );
 }

@@ -1,52 +1,52 @@
-import { useEffect, useRef, useState } from "react";
-import Video from "./video";
-import { CloseIcon } from "./icons";
-import { GoMute } from "react-icons/go";
-import { Button } from "react-bootstrap";
-import VideoPlayer from "./videoPlayer";
+import { useState } from "react";
+import { IoMdCloseCircle } from "react-icons/io";
 
 export default function QuestionModal({
     questions,
-    open,
-    setOpen,
-    waitingVid
+    currentVid,
+    setCurrentVid
 }) {
-    const [currentVid, setCurrentVid] = useState(waitingVid);
-    function handleClick(url) {
+    const [open, setOpen] = useState(false);
+
+    function handleClick() {
+        setOpen(!open);
+    }
+
+    function setVid(url) {
         setCurrentVid(url);
+        setOpen(!open);
     }
 
     return (
         <>
-            <div key={questions.id} className="questionModal">
-                <div className="modalGrid">
-                    <div className="modal-video">
-                        <VideoPlayer url={currentVid} />
-                    </div>
-                    <div className="questions">
-                        {questions.map((question) => {
-                            return (
-                                <div key={question.question}>
-                                    <span
-                                        onClick={() =>
-                                            handleClick(question.videoUrl)
-                                        }
-                                    >
-                                        {question.question}
-                                    </span>
-                                </div>
-                            );
-                        })}
-                        <div className="closeButton">
-                            <CloseIcon
-                                size="30px"
-                                color="#4F00C5"
-                                onClick={() => setOpen(false)}
-                            />
-                        </div>
-                    </div>
-                </div>
+            <div className="openModal" onClick={handleClick}>
+                <span className="text">Still meg et spørsmål</span>
             </div>
+
+            {open && (
+                <div className="questionModal">
+                    <span className="button-wrapper">
+                        <button className="close">
+                            <IoMdCloseCircle onClick={handleClick} />
+                        </button>
+                    </span>
+                    {questions.map((question) => {
+                        return (
+                            <div
+                                key={question.question}
+                                className="question-wrapper"
+                            >
+                                <span
+                                    onClick={() => setVid(question.videoUrl)}
+                                    className="question"
+                                >
+                                    {question.question}
+                                </span>
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
         </>
     );
 }

@@ -50,11 +50,17 @@
         padding-right: 0;
         .slide {
             .video-card {
+                position: relative;
                 max-width: 500px;
                 margin-right: auto;
                 margin-left: auto;
+                .button {
+                    margin-left: 0;
+                }
                 .video-box {
                     border-bottom: 2px solid $page-background;
+                    max-height: 498px;
+                    overflow: hidden;
                     video {
                         margin-bottom: -8px;
                         z-index: 1 !important;
@@ -63,7 +69,7 @@
             }
 
             .openModal {
-                top: 150px;
+                top: -50px;
                 right: 1%;
             }
 
@@ -95,6 +101,42 @@
     }
 }
 
+.video-card {
+    .button {
+        display: flex;
+        top: 10px;
+        left: 70px;
+        position: absolute;
+        min-width: 40px;
+        min-height: 40px;
+        z-index: 4;
+
+        .muted {
+            mask: url("../../public/mute.svg");
+            mask-repeat: no-repeat;
+        }
+        .unmuted {
+            mask: url("../../public/unmute.svg");
+            mask-repeat: no-repeat;
+        }
+        &.hideBtn {
+            .muted,
+            .unmuted {
+                visibility: hidden;
+            }
+        }
+        &.showBtn {
+            .muted,
+            .unmuted {
+                border: none;
+                background-color: $primary;
+                height: 40px;
+                width: 40px;
+            }
+        }
+    }
+}
+
 .__inner {
     display: none;
 
@@ -109,7 +151,7 @@
             }
             .video-card {
                 .video-box {
-                    height: 499px;
+                    height: 477px;
                     overflow: hidden;
                 }
             }
@@ -141,7 +183,7 @@
     .__inner {
         &.bg {
             display: block;
-            background: linear-gradient($page-background 500px, #fff 100px);
+            background: linear-gradient($page-background 477px, #fff 100px);
         }
 
         .card-grid {
@@ -155,12 +197,13 @@
             .video-card {
                 position: relative;
                 grid-row: 1;
+                .button {
+                    top: 10px;
+                }
             }
-
             .openModal {
                 top: 10px;
             }
-
             .card-info {
                 text-align: center;
                 color: $primary;

@@ -19,120 +19,35 @@
     }
 }
 
-textarea:hover,
-input:hover,
-textarea:active,
-input:active,
-textarea:focus,
-input:focus,
-button:focus,
-button:active,
-button:hover,
-label:focus,
-.btn:active,
-.btn.active {
-    outline: 0px !important;
-    -webkit-appearance: none;
-    box-shadow: none !important;
-}
-
 .questionModal {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 700px;
-
-    z-index: 2;
-    flex-wrap: wrap;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-
-    .modalGrid {
-        position: relative;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
-        z-index: 999;
-        background-color: rgb(5, 114, 92);
-        min-width: 100vw;
-        padding-bottom: 1000px;
-        padding-top: 30px;
-
-        .modal-video {
-            display: flex;
-            flex-direction: column;
-            margin-top: auto;
+    top: 170px;
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px rgba($textPar, 0.5);
+    z-index: 6;
+    .button-wrapper {
+        display: flex;
+        .close {
+            border: none;
+            background-color: transparent;
+            color: $primary;
             margin-left: auto;
-            margin-right: auto;
-            height: 529px;
-            overflow: hidden;
-            #muted {
-                &.btn-primary {
-                    background: transparent;
-                    border: none;
-                    width: 20px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    .mute-button,
-                    .sound-button {
-                        margin-left: auto;
-                        margin-right: auto;
-                        color: $secondary;
-                        height: 40px;
-                        width: 40px;
-                    }
-                    :hover {
-                        color: rgba($secondary, 0.5);
-                    }
-                }
-                &.mute {
-                    .mute-button {
-                        display: block;
-                    }
-                    .sound-button {
-                        display: none;
-                    }
-                }
-                &.sound {
-                    .mute-button {
-                        display: none;
-                    }
-                    .sound-button {
-                        display: block;
-                    }
-                }
-            }
-            .soundVideo {
-                width: 300px !important;
-                height: 500px !important;
+            svg {
+                width: 25px;
+                height: 25px;
             }
         }
-        .questions {
-            background-color: #fff;
-            color: #000;
-            padding: 30px;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 999;
-            // position: relative;
-            position: absolute;
+    }
+    .question-wrapper {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        .question {
             cursor: pointer;
-            max-width: 460px;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            top: 350px;
-            .closeButton {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                cursor: pointer;
-            }
-            span:hover {
+            &:hover {
                 color: rgba($textPar, 0.5);
             }
         }
@@ -140,16 +55,23 @@ label:focus,
 }
 
 @media (min-width: 768px) {
-    body.modal-open {
-        overflow: hidden;
-    }
     .questionModal {
-        .modalGrid {
-            grid-template-columns: 40% auto;
-        }
-        .questions {
-            position: relative !important;
-            top: 0 !important;
-        }
+        top: 0;
+        right: 0;
+    }
+
+    .are .questionModal {
+        transform: translateX(100%);
+        z-index: 999;
+    }
+
+    .odin .questionModal {
+        transform: translateX(-100%);
+        z-index: 999;
+    }
+
+    .britt-synnove .questionModal {
+        transform: translateX(-100%);
+        z-index: 999;
     }
 }
