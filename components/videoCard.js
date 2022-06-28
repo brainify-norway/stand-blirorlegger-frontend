@@ -4,7 +4,8 @@ import QuestionModal from "./questionModal";
 
 export default function VideoCard({ item }) {
     const [open, setOpen] = useState(false);
-    const [mute, setMute] = useState(false);
+    const [mute, setMute] = useState(true);
+    const [playing, setPlaying] = useState(true);
     const [currentVid, setCurrentVid] = useState(
         item.acf.featuredVideo.mediaItemUrl
     );
@@ -12,7 +13,7 @@ export default function VideoCard({ item }) {
     return (
         <>
             <div key={item.id} className={"video-card " + item.slug}>
-                <span
+                {/* <span
                     className={
                         currentVid !== item.acf.featuredVideo.mediaItemUrl
                             ? "button showBtn"
@@ -23,9 +24,21 @@ export default function VideoCard({ item }) {
                         onClick={() => setMute(!mute)}
                         className={mute ? "muted " : "unmuted "}
                     ></button>
-                </span>
+                </span> */}
                 <div className="video-box">
-                    <Video url={currentVid} mute={mute} />
+                    <Video
+                        url={currentVid}
+                        mute={mute}
+                        setMute={setMute}
+                        loop={
+                            currentVid === item.acf.featuredVideo.mediaItemUrl
+                        }
+                        currentVid={currentVid}
+                        setCurrentVid={setCurrentVid}
+                        featured={item.acf.featuredVideo.mediaItemUrl}
+                        playing={playing}
+                        setPlaying={setPlaying}
+                    />
                     <div className="hide-video-line"></div>
                 </div>
                 <QuestionModal

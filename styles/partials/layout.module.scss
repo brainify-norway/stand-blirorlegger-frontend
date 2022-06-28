@@ -105,29 +105,42 @@
     .button {
         display: flex;
         top: 10px;
-        left: 70px;
+        left: 60px;
         position: absolute;
         min-width: 40px;
         min-height: 40px;
         z-index: 4;
-
+        .pause {
+            mask: url("../../public/pause.svg");
+            mask-repeat: no-repeat;
+            mask-size: 15px;
+        }
+        .play {
+            mask: url("../../public/play.svg");
+            mask-repeat: no-repeat;
+            mask-size: 20px;
+        }
         .muted {
-            mask: url("../../public/mute.svg");
+            mask: url("../../public/unmute.svg");
             mask-repeat: no-repeat;
         }
         .unmuted {
-            mask: url("../../public/unmute.svg");
+            mask: url("../../public/mute.svg");
             mask-repeat: no-repeat;
         }
         &.hideBtn {
             .muted,
-            .unmuted {
+            .unmuted,
+            .play,
+            .pause {
                 visibility: hidden;
             }
         }
         &.showBtn {
             .muted,
-            .unmuted {
+            .unmuted,
+            .play,
+            .pause {
                 border: none;
                 background-color: $primary;
                 height: 40px;
@@ -198,7 +211,7 @@
                 position: relative;
                 grid-row: 1;
                 .button {
-                    top: 10px;
+                    top: 5px;
                 }
             }
             .openModal {
