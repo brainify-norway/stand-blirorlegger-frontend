@@ -1,7 +1,7 @@
-import { Container, Spinner } from 'react-bootstrap';
-import VideoCard from '../components/videoCard';
-import { CgChevronLeft, CgChevronRight } from 'react-icons/cg';
 import { useEffect, useState } from 'react';
+import { Container, Spinner } from 'react-bootstrap';
+import { CgChevronLeft, CgChevronRight } from 'react-icons/cg';
+import VideoCard from '../components/videoCard';
 
 const Layout = ({ data, ambassadorer }) => {
     // function for mobile slider here

@@ -1,5 +1,5 @@
-import { Container, Row } from 'react-bootstrap';
 import Image from 'next/image';
+import { Container, Row } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaSnapchat } from 'react-icons/fa';
 
 const Footer = ({ data }) => {
