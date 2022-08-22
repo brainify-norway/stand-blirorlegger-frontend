@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Container, Spinner } from 'react-bootstrap';
 import { CgChevronLeft, CgChevronRight } from 'react-icons/cg';
 import Footer from '../components/footer';
-import NavMenu from '../components/NavMenu';
+import NavMenu from '../components/navMenu';
 import VideoCard from '../components/videoCard';
 import { getAmbassadorer, getFooterAcf, getFrontPageAcf } from '../lib/api';
 
