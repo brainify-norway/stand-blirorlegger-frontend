@@ -2,7 +2,11 @@ import { useState } from 'react';
 import QuestionModal from './questionModal';
 import Video from './video';
 
-export default function VideoCard({ item }) {
+type Props = {
+    item: any;
+};
+
+export default function VideoCard({ item }: Props) {
     const [mute, setMute] = useState(true);
     const [playing, setPlaying] = useState(true);
     const [currentVid, setCurrentVid] = useState(
@@ -30,7 +34,6 @@ export default function VideoCard({ item }) {
                 </div>
                 <QuestionModal
                     questions={item.videos.questions}
-                    currentVid={currentVid}
                     setCurrentVid={setCurrentVid}
                     setMute={setMute}
                 />
