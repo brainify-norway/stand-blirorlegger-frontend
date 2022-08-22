@@ -102,7 +102,7 @@
             grid-template-columns: 40% 55%;
             gap: 40px;
             --bs-gutter-x: 0;
-            flex-shrink: 1!important;
+            flex-shrink: 1 !important;
             .icons {
                 grid-template-columns: 1fr 1fr 3fr;
                 align-items: center;
@@ -121,12 +121,10 @@
                 justify-content: flex-end !important;
                 margin-bottom: 50px !important;
                 flex-direction: row !important;
-                flex-wrap: wrap!important;
+                flex-wrap: wrap !important;
             }
             .footer-secondary-links {
                 text-align: end !important;
-
-
             }
         }
     }

@@ -84,7 +84,7 @@
                     &::after {
                         display: block;
                         clear: both;
-                        content: "";
+                        content: '';
                         position: relative;
                         left: 0;
                         bottom: 0;
@@ -111,21 +111,21 @@
         min-height: 40px;
         z-index: 4;
         .pause {
-            mask: url("../../public/pause.svg");
+            mask: url('../../public/pause.svg');
             mask-repeat: no-repeat;
             mask-size: 15px;
         }
         .play {
-            mask: url("../../public/play.svg");
+            mask: url('../../public/play.svg');
             mask-repeat: no-repeat;
             mask-size: 20px;
         }
         .muted {
-            mask: url("../../public/unmute.svg");
+            mask: url('../../public/unmute.svg');
             mask-repeat: no-repeat;
         }
         .unmuted {
-            mask: url("../../public/mute.svg");
+            mask: url('../../public/mute.svg');
             mask-repeat: no-repeat;
         }
         &.hideBtn {
@@ -225,7 +225,7 @@
                     &::after {
                         display: block;
                         clear: both;
-                        content: "";
+                        content: '';
                         position: relative;
                         left: 0;
                         bottom: 0;

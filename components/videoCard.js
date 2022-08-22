@@ -1,9 +1,8 @@
-import { useState } from "react";
-import Video from "./video";
-import QuestionModal from "./questionModal";
+import { useState } from 'react';
+import QuestionModal from './questionModal';
+import Video from './video';
 
 export default function VideoCard({ item }) {
-    const [open, setOpen] = useState(false);
     const [mute, setMute] = useState(true);
     const [playing, setPlaying] = useState(true);
     const [currentVid, setCurrentVid] = useState(
@@ -12,19 +11,7 @@ export default function VideoCard({ item }) {
 
     return (
         <>
-            <div key={item.id} className={"video-card " + item.slug}>
-                {/* <span
-                    className={
-                        currentVid !== item.acf.featuredVideo.mediaItemUrl
-                            ? "button showBtn"
-                            : "button hideBtn"
-                    }
-                >
-                    <button
-                        onClick={() => setMute(!mute)}
-                        className={mute ? "muted " : "unmuted "}
-                    ></button>
-                </span> */}
+            <div key={item.id} className={'video-card ' + item.slug}>
                 <div className="video-box">
                     <Video
                         url={currentVid}
@@ -45,6 +32,7 @@ export default function VideoCard({ item }) {
                     questions={item.videos.questions}
                     currentVid={currentVid}
                     setCurrentVid={setCurrentVid}
+                    setMute={setMute}
                 />
             </div>
             <div className="card-info">

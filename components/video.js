@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { BiPlay } from "react-icons/bi";
+import { useRef } from 'react';
 export default function Video({
     url,
     loop,
@@ -9,46 +8,41 @@ export default function Video({
     playing,
     setPlaying,
     mute,
-    setMute
+    setMute,
 }) {
     const vidRef = useRef(null);
     function play() {
         vidRef.current.paused ? vidRef.current.play() : vidRef.current.pause();
         setPlaying(!vidRef.current.paused);
     }
-    function muting() {
-        vidRef.current.muted === true
-            ? (vidRef.current.muted = false)
-            : (vidRef.current.muted = true);
-        setMute(!vidRef.current.muted);
-    }
     return (
         <>
             <span
                 className={
                     currentVid !== featured
-                        ? "button showBtn"
-                        : "button hideBtn"
+                        ? 'button showBtn'
+                        : 'button hideBtn'
                 }
             >
                 <button
                     onClick={play}
-                    className={playing ? "pause " : "play "}
+                    className={playing ? 'pause ' : 'play '}
                 ></button>
                 <button
-                    onClick={muting}
-                    className={mute ? "unmuted " : "muted "}
+                    onClick={() => setMute(!mute)}
+                    className={mute ? 'unmuted ' : 'muted '}
                 ></button>
             </span>
             <video
                 ref={vidRef}
                 key={url}
                 style={{
-                    width: "100%",
-                    height: "500px"
+                    width: '100%',
+                    height: '500px',
                 }}
                 autoPlay
                 loop={loop}
+                muted={mute}
                 onEnded={() => setCurrentVid(featured)}
             >
                 <source src={url} />

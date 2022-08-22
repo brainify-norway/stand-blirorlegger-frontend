@@ -1,6 +1,6 @@
-import { Container, Row } from "react-bootstrap";
-import Image from "next/image";
-import { FaFacebook, FaInstagram, FaSnapchat } from "react-icons/fa";
+import { Container, Row } from 'react-bootstrap';
+import Image from 'next/image';
+import { FaFacebook, FaInstagram, FaSnapchat } from 'react-icons/fa';
 
 const Footer = ({ data }) => {
     return (
@@ -69,7 +69,6 @@ const Footer = ({ data }) => {
                         <div className="col">
                             <ul className="list-unstyled footer-navigation">
                                 <li>
-                                    
                                     <a href={data.menuLinks[0].menuLink}>
                                         {data.menuLinks[0].menuName}
                                     </a>
@@ -143,5 +142,3 @@ const Footer = ({ data }) => {
 };
 
 export default Footer;
-
-

@@ -1,14 +1,7 @@
-import {
-    Button,
-    Container,
-    Nav,
-    Navbar,
-    NavDropdown,
-    Collapse
-} from "react-bootstrap";
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { Collapse, Container, Nav, Navbar } from 'react-bootstrap';
 
 const NavMenu = () => {
     const [open, setOpen] = useState(false);
@@ -29,12 +22,12 @@ const NavMenu = () => {
                     <div
                         className={
                             open
-                                ? "hamburger-dropdown close"
-                                : "hamburger-dropdown  open"
+                                ? 'hamburger-dropdown close'
+                                : 'hamburger-dropdown  open'
                         }
                         onClick={() => setOpen(!open)}
                     ></div>
-                    <Collapse className={open ? "show" : "hide"}>
+                    <Collapse className={open ? 'show' : 'hide'}>
                         <Nav id="nav-menu">
                             <Link
                                 className="menu-link"

@@ -1,10 +1,8 @@
-import Head from "next/head";
-import Image from "next/image";
-import Footer from "../components/Footer";
-import NavMenu from "../components/NavMenu";
-import Layout from "../components/Layout";
-import { getAmbassadorer, getFrontPageAcf, getFooterAcf } from "../lib/api";
-
+import Head from 'next/head';
+import Footer from '../components/Footer';
+import NavMenu from '../components/NavMenu';
+import Layout from '../components/Layout';
+import { getAmbassadorer, getFrontPageAcf, getFooterAcf } from '../lib/api';
 
 export default function Home({ ambassadorer, frontPage, footerAcf }) {
     return (
@@ -21,7 +19,7 @@ export default function Home({ ambassadorer, frontPage, footerAcf }) {
             </div>
             <NavMenu />
 
-            <Layout data={frontPage.frontpageAcf} ambassadorer={ambassadorer}/>
+            <Layout data={frontPage.frontpageAcf} ambassadorer={ambassadorer} />
 
             <Footer data={footerAcf.footerAcf} />
         </>
@@ -37,7 +35,7 @@ export async function getStaticProps() {
         props: {
             ambassadorer,
             frontPage,
-            footerAcf
-        }
+            footerAcf,
+        },
     };
 }

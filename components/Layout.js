@@ -1,7 +1,7 @@
-import { Carousel, Container, Spinner } from "react-bootstrap";
-import VideoCard from "../components/videoCard";
-import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
-import { useEffect, useState } from "react";
+import { Container, Spinner } from 'react-bootstrap';
+import VideoCard from '../components/videoCard';
+import { CgChevronLeft, CgChevronRight } from 'react-icons/cg';
+import { useEffect, useState } from 'react';
 
 const Layout = ({ data, ambassadorer }) => {
     // function for mobile slider here
@@ -45,8 +45,8 @@ const Layout = ({ data, ambassadorer }) => {
                                 <div
                                     className={
                                         index === current
-                                            ? "slide active"
-                                            : "slide"
+                                            ? 'slide active'
+                                            : 'slide'
                                     }
                                     key={index}
                                 >
@@ -138,7 +138,7 @@ const Layout = ({ data, ambassadorer }) => {
                         <h2>{data.title}</h2>
                         <div
                             dangerouslySetInnerHTML={{
-                                __html: data.content
+                                __html: data.content,
                             }}
                         />
                         <p>{data.eventTitle}</p>
