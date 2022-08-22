@@ -2,7 +2,11 @@ import Image from 'next/image';
 import { Container, Row } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaSnapchat } from 'react-icons/fa';
 
-const Footer = ({ data }) => {
+type Props = {
+    data: any;
+};
+
+const Footer = ({ data }: Props) => {
     return (
         <>
             <div className="main-footer">

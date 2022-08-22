@@ -1,4 +1,17 @@
 import { useRef } from 'react';
+
+type Props = {
+    url: string;
+    loop: boolean;
+    currentVid: string;
+    setCurrentVid: Function;
+    featured: string;
+    playing: boolean;
+    setPlaying: Function;
+    mute: boolean;
+    setMute: Function;
+};
+
 export default function Video({
     url,
     loop,
@@ -9,7 +22,7 @@ export default function Video({
     setPlaying,
     mute,
     setMute,
-}) {
+}: Props) {
     const vidRef = useRef(null);
     function play() {
         vidRef.current.paused ? vidRef.current.play() : vidRef.current.pause();

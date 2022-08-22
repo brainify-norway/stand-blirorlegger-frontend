@@ -1,6 +1,6 @@
 const API_URL = 'https://blirorlegger.no/stand/graphql';
 
-async function fetchAPI(query, { variables } = {}) {
+async function fetchAPI(query: string, { variables }: any = {}) {
     const headers = { 'Content-Type': 'application/json' };
 
     const res = await fetch(API_URL, {

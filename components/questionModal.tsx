@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import { IoMdCloseCircle } from 'react-icons/io';
 
-export default function QuestionModal({ questions, setCurrentVid, setMute }) {
+type Props = {
+    questions: Array<any>;
+    setCurrentVid: Function;
+    setMute: Function;
+};
+
+export default function QuestionModal({
+    questions,
+    setCurrentVid,
+    setMute,
+}: Props) {
     const [open, setOpen] = useState(false);
 
     function handleClick() {
