@@ -41,6 +41,7 @@ export default function Video({
                     height: '500px',
                 }}
                 autoPlay
+                playsInline
                 loop={loop}
                 muted={mute}
                 onEnded={() => setCurrentVid(featured)}
