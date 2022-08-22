@@ -27,12 +27,9 @@ export default function QuestionModal({ questions, setCurrentVid, setMute }) {
                             <IoMdCloseCircle onClick={handleClick} />
                         </button>
                     </span>
-                    {questions.map((question) => {
+                    {questions.map((question, i) => {
                         return (
-                            <div
-                                key={question.question}
-                                className="question-wrapper"
-                            >
+                            <div key={i} className="question-wrapper">
                                 <span
                                     onClick={() => setVid(question.videoUrl)}
                                     className="question"

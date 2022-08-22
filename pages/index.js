@@ -1,10 +1,32 @@
 import Head from 'next/head';
-import Footer from '../components/Footer';
+import { useEffect, useState } from 'react';
+import { Container, Spinner } from 'react-bootstrap';
+import { CgChevronLeft, CgChevronRight } from 'react-icons/cg';
+import Footer from '../components/footer';
 import NavMenu from '../components/NavMenu';
-import Layout from '../components/Layout';
-import { getAmbassadorer, getFrontPageAcf, getFooterAcf } from '../lib/api';
+import VideoCard from '../components/videoCard';
+import { getAmbassadorer, getFooterAcf, getFrontPageAcf } from '../lib/api';
 
 export default function Home({ ambassadorer, frontPage, footerAcf }) {
+    const data = frontPage.frontpageAcf;
+    const [current, setCurrent] = useState(0);
+    const [open, setOpen] = useState(false);
+    const length = ambassadorer.length;
+
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+    }, []);
+
+    const nextSlide = () => {
+        setCurrent(current === length - 1 ? 0 : current + 1);
+    };
+
+    const prevSlide = () => {
+        setCurrent(current === 0 ? length - 1 : current - 1);
+    };
+
     return (
         <>
             <div>
@@ -19,7 +41,155 @@ export default function Home({ ambassadorer, frontPage, footerAcf }) {
             </div>
             <NavMenu />
 
-            <Layout data={frontPage.frontpageAcf} ambassadorer={ambassadorer} />
+            <section className="slider mobile">
+                <div className="left-arrow">
+                    <CgChevronLeft className="left-icon" onClick={prevSlide} />
+                </div>
+                <div className="right-arrow">
+                    <CgChevronRight
+                        className="right-icon"
+                        onClick={nextSlide}
+                    />
+                </div>
+
+                <div className="card-grid container">
+                    {loading ? (
+                        ambassadorer.map(({ node }, index) => {
+                            return (
+                                <div
+                                    className={
+                                        index === current
+                                            ? 'slide active'
+                                            : 'slide'
+                                    }
+                                    key={index}
+                                >
+                                    {index === current && (
+                                        <VideoCard
+                                            key={node.id}
+                                            item={node}
+                                            open={open}
+                                            setOpen={setOpen}
+                                        />
+                                    )}
+                                </div>
+                            );
+                        })
+                    ) : (
+                        <div className="spinner-wrapper">
+                            <Spinner
+                                animation="border"
+                                role="status"
+                                className="loading"
+                            >
+                                <span className="visually-hidden">
+                                    Loading...
+                                </span>
+                            </Spinner>
+                        </div>
+                    )}
+                </div>
+            </section>
+
+            <div className="__inner bg desktop">
+                <div className="card-grid container">
+                    {loading ? (
+                        ambassadorer.map(({ node }, i) => {
+                            return (
+                                <>
+                                    <VideoCard
+                                        key={i}
+                                        item={node}
+                                        open={open}
+                                        setOpen={setOpen}
+                                    />
+                                </>
+                            );
+                        })
+                    ) : (
+                        <>
+                            <div className="spinner-wrapper">
+                                <Spinner
+                                    animation="border"
+                                    role="status"
+                                    className="loading"
+                                >
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </Spinner>
+                            </div>
+                            <div className="spinner-wrapper">
+                                <Spinner
+                                    animation="border"
+                                    role="status"
+                                    className="loading"
+                                >
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </Spinner>
+                            </div>
+                            <div className="spinner-wrapper">
+                                <Spinner
+                                    animation="border"
+                                    role="status"
+                                    className="loading"
+                                >
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </Spinner>
+                            </div>
+                        </>
+                    )}
+                </div>
+            </div>
+
+            <Container className="info">
+                {loading ? (
+                    <>
+                        <h2>{data.title}</h2>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: data.content,
+                            }}
+                        />
+                        <p>{data.eventTitle}</p>
+                        {data.events.map((event, i) => {
+                            return (
+                                <p key={i} className="eventItem">
+                                    {event.event}
+                                </p>
+                            );
+                        })}
+                    </>
+                ) : (
+                    <div className="spinner-wrapper">
+                        <Spinner
+                            animation="grow"
+                            role="status"
+                            className="three-points"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                        <Spinner
+                            animation="grow"
+                            role="status"
+                            className="three-points"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                        <Spinner
+                            animation="grow"
+                            role="status"
+                            className="three-points"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    </div>
+                )}
+            </Container>
 
             <Footer data={footerAcf.footerAcf} />
         </>
