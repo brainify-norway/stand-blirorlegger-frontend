@@ -1,4 +1,4 @@
-const API_URL = 'https://blirorlegger.no/stand/graphql';
+const API_URL = 'https://wp.blirorlegger.no/graphql';
 
 async function fetchAPI(query: string, { variables }: any = {}) {
     const headers = { 'Content-Type': 'application/json' };
